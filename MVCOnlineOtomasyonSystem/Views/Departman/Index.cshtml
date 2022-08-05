@@ -1,0 +1,35 @@
+﻿@using MVCOnlineOtomasyonSystem.Models.Siniflar
+@model List<Departman> 
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Departman Listesi</h2>
+
+<p>
+    @Html.ActionLink("Yeni Departman Ekle", "DepartmanEkle")
+</p>
+<table class="table table-bordered">
+    <tr>
+        <th>
+            Departman ID
+        </th>
+        <th>
+            Departman Adı
+        </th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>@item.DepartmanID</td>
+    <td>@item.DepartmanAd</td>
+    <td><a href="/Departman/DepartmanSil/@item.DepartmanID" class="btn btn-danger">Sil</a></td>
+    <td><a href="/Departman/DepartmanGetir/@item.DepartmanID" class="btn btn-info">Güncelle</a></td>
+</tr>
+}
+
+</table>
