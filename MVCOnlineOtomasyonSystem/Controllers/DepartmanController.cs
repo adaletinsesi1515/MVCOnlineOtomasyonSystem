@@ -54,6 +54,28 @@ namespace MVCOnlineOtomasyonSystem.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult DepartmanDetay(int id)
+        {
+            var degerler = c.Personels.Where(x => x.DepartmanId == id).ToList();
+            
+            //Departman adını başlığa taşıyoruz. 
+            var dpt = c.Departmen.Where(x => x.DepartmanID == id).Select(y => y.DepartmanAd).FirstOrDefault();
+            ViewBag.dpt1 = dpt;
 
+            return View(degerler);
+        }
+
+        public ActionResult DepartmanPersonelSatis(int id)
+        {
+            var deger = c.SatisHarekets.Where(x => x.PersonelId == id).ToList();
+
+            //PErsonel adını başlığa taşıma
+            var prs1 = c.Personels.Where(x => x.PersonelID == id).Select(y => y.PersonelAd).FirstOrDefault();
+            ViewBag.prs1 = prs1;
+            var prs2 = c.Personels.Where(x => x.PersonelID == id).Select(y => y.PersonelSoyad).FirstOrDefault();
+            ViewBag.prs2 = prs2;
+
+            return View(deger);
+        }
     }
 }
