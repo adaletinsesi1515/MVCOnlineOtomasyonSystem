@@ -13,11 +13,12 @@ namespace MVCOnlineOtomasyonSystem.Models.Siniflar
         public int CariID { get; set; }
         
         [Column(TypeName = "varChar")]
-        [StringLength(30)]
+        [StringLength(30,ErrorMessage ="30 Karakteri geçemez")]
+        [Required(ErrorMessage ="Bu alanı boş geçemezsiniz")]
         public string CariAd { get; set; }
 
         [Column(TypeName = "varChar")]
-        [StringLength(30)]
+        [StringLength(30,ErrorMessage = "30 Karakteri geçemez")]
         public string CariSoyad { get; set; }
 
         [Column(TypeName = "varChar")]
@@ -25,8 +26,10 @@ namespace MVCOnlineOtomasyonSystem.Models.Siniflar
         public string CariSehir { get; set; }
 
         [Column(TypeName = "varChar")]
-        [StringLength(50)]
+        [StringLength(50, ErrorMessage = "50 Karakteri geçemez")]
         public string CariMail { get; set; }
+
+        public bool Durum { get; set; }
 
         public ICollection<SatisHareket> SatisHarekets { get; set; }
     }
