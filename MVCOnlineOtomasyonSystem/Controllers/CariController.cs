@@ -26,6 +26,11 @@ namespace MVCOnlineOtomasyonSystem.Controllers
         [HttpPost]
         public ActionResult CariEkle(Cariler p)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("CariEkle");
+            }
+
             c.Carilers.Add(p);
             p.Durum = true;
             c.SaveChanges();
