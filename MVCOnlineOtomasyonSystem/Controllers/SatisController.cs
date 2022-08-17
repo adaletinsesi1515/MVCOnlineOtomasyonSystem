@@ -81,6 +81,8 @@ namespace MVCOnlineOtomasyonSystem.Controllers
 
 
                 p.Tarih = DateTime.Parse(DateTime.Now.ToShortDateString());
+            p.ToplamTutar= p.Adet * p.Fiyat;
+
             c.SatisHarekets.Add(p);
             c.SaveChanges();
             return RedirectToAction("Index");

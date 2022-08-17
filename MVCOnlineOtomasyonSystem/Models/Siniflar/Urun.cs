@@ -20,7 +20,7 @@ namespace MVCOnlineOtomasyonSystem.Models.Siniflar
         [StringLength(30)]
         public string UrunMarka { get; set; }
 
-        public short Stok { get; set; }
+        public int Stok { get; set; }
         public decimal AlisFiyat { get; set; }
         public decimal SatisFiyat { get; set; }
         public bool Durum { get; set; }
