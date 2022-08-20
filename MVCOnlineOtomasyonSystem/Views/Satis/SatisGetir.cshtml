@@ -9,7 +9,7 @@
 <h2>Satış İşlemi Güncelleme Sayfası</h2>
 <br />
 
-@using (Html.BeginForm("SatisHareketGuncelleme", "Satis", FormMethod.Post))
+@using (Html.BeginForm("SatisHareketGuncelle", "Satis", FormMethod.Post))
 {
     @Html.HiddenFor(x => x.SatisID)
 
@@ -57,13 +57,7 @@
             @Html.ValidationMessageFor(model => model.Fiyat, "", new { @class = "text-danger" })
         </div>
     </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.ToplamTutar, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.ToplamTutar, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.ToplamTutar, "", new { @class = "text-danger" })
-        </div>
-    </div>
+    
     <div class="form-group">
         @Html.LabelFor(model => model.Tarih, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">

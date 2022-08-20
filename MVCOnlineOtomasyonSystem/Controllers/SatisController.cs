@@ -118,6 +118,19 @@ namespace MVCOnlineOtomasyonSystem.Controllers
             return View("SatisGetir", bul);
         }
 
+        public ActionResult SatisHareketGuncelle(SatisHareket p)
+        {
+            var bul = c.SatisHarekets.Find(p.SatisID);
+            bul.Tarih = p.Tarih;
+            bul.Adet = p.Adet;
+            bul.Fiyat = p.Fiyat;
+            bul.ToplamTutar = p.Adet * p.Fiyat;           
+            bul.UrunId= p.UrunId;
+            bul.CariId = p.CariId;
+            bul.PersonelId = p.PersonelId;
+            c.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
 
     }
