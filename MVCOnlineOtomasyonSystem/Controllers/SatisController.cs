@@ -80,12 +80,45 @@ namespace MVCOnlineOtomasyonSystem.Controllers
             }
 
 
-                p.Tarih = DateTime.Parse(DateTime.Now.ToShortDateString());
+            p.Tarih = DateTime.Parse(DateTime.Now.ToShortDateString());
             p.ToplamTutar= p.Adet * p.Fiyat;
 
             c.SatisHarekets.Add(p);
             c.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult SatisGetir(int id)
+        {
+            List<SelectListItem> urunler = (from x in c.Uruns.ToList()
+                                            select new SelectListItem
+                                            {
+                                                Text = x.UrunAd,
+                                                Value = x.UrunID.ToString()
+                                            }).ToList();
+            ViewBag.dgr1 = urunler;
+
+            List<SelectListItem> cariler = (from x in c.Carilers.ToList()
+                                            select new SelectListItem
+                                            {
+                                                Text = x.CariAd + " " + x.CariSoyad,
+                                                Value = x.CariID.ToString()
+                                            }).ToList();
+            ViewBag.dgr2 = cariler;
+
+            List<SelectListItem> personeller = (from x in c.Personels.ToList()
+                                                select new SelectListItem
+                                                {
+                                                    Text = x.PersonelAd + " " + x.PersonelSoyad,
+                                                    Value = x.PersonelID.ToString()
+                                                }).ToList();
+            ViewBag.dgr3 = personeller;
+
+            var bul = c.SatisHarekets.Find(id);
+            return View("SatisGetir", bul);
+        }
+
+
+
     }
 }
