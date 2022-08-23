@@ -36,7 +36,12 @@ namespace MVCOnlineOtomasyonSystem.Models.Siniflar
 
         [Column(TypeName = "varChar")]
         [StringLength(30)]
+
+        
         public string TeslimAlan { get; set; }
+
+        public decimal ToplamTutar { get; set; }
+
         public ICollection<FaturaKalem> FaturaKalems { get; set; }
     }
 }

@@ -6,8 +6,9 @@
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
+<br />
 <p>
-    @Html.ActionLink("Yeni Fatura Ekle", "FaturaEkle")
+    @Html.ActionLink("Yeni Fatura Girişi", "FaturaEkle")
 </p>
 <table class="table table-bordered">
     <tr>
@@ -19,6 +20,7 @@
         <th>Fatura Saati</th>        
         <th>Teslim Alan</th>
         <th>Teslim Eden</th>
+        <th>Toplam Tutar</th>
         <th>Detaylar</th>
     </tr>
 
@@ -33,6 +35,7 @@
     <td>@item.Saat</td>
     <td>@item.TeslimAlan</td>
     <td>@item.TeslimEden</td>
+    <td>@item.ToplamTutar</td>
     <td><a href="/Fatura/FaturaDetay/@item.FaturaID" class="btn btn-default" style="background-color:lightcoral">Detay</a></td>
 </tr>
     }
